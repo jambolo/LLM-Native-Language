@@ -4,21 +4,22 @@ LNL is a compact, unambiguous, token-efficient language designed for LLMs operat
 
 ## Motivation
 
-English is poorly suited for LLM-to-LLM and LLM-internal use:
+English is poorly suited for LLM-to-LLM and internal reasoning use:
 
 * **Token inefficiency** -- articles, auxiliaries, and redundant syntax consume tokens without adding semantic content
-* **Ambiguity** -- pronoun-heavy, context-dependent, relies on pragmatic inference that is unreliable across model instances
+* **Ambiguity** -- pronoun-heavy, context-dependent, relies on pragmatic inference that may be unreliable across model instances. For example, model A says 'it' referring to X, model B parses 'it' as Y.
 * **No structured semantics** -- conditionality, sequence, causality, and confidence are expressed in prose, forcing models to parse rather than decode
 * **No dialect separation** -- internal reasoning, agent commands, and domain knowledge share the same surface form
 
 ## Goals
 
-* Reduce token count vs. equivalent English by ≥40%
+* Reduce token count vs. equivalent English
 * Eliminate syntactic ambiguity in all core constructs
 * Encode semantic relationships (sequence, causation, conditionality, confidence) in grammar, not vocabulary
 * Support distinct dialects with shared base grammar
 * Remain parseable by current LLMs without fine-tuning (bootstrap phase)
-* Enable lossless round-trip translation to/from English for human inspection
+* Semantic preservation in round-trip translation to/from English for human inspection
+* Error recovery
 
 ## Dialects
 
@@ -30,7 +31,7 @@ LNL defines three dialects that share the base grammar but diverge in lexicon an
 
 **Domain-Specific Dialect (DSD)** -- namespaced vocabulary extensions for fields like code (`code:`), medicine (`med:`), law (`law:`), finance (`fin:`). Any base operator can be used with namespaced tokens; domains may define shorthand macros that expand to base LNL.
 
-## Comparison
+## Comparison to Existing Approaches
 
 | Approach           | Token efficiency | Ambiguity | Structured semantics | LLM-native |
 |--------------------|------------------|-----------|----------------------|------------|
