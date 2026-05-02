@@ -1,0 +1,45 @@
+# --- LLM & Data Artifacts ---
+# Local vector databases or cache
+.chroma/
+.pinecone/
+*.index
+*.embeddings
+# Cache for pre-computed grammar trees or tokenization samples
+.cache/
+__pycache__/
+
+# --- Environment & Secrets ---
+# Sensitive API keys (OpenAI, Anthropic, etc.)
+.env
+.env.local
+.env.*.local
+secrets.json
+# Virtual environments
+.venv/
+env/
+venv/
+bin/
+lib/
+
+# --- Project-Specific Specs ---
+# Generated documentation from grammar files
+docs/generated/
+# Logs of LLM outputs/traces during testing
+logs/
+*.log
+traces/
+
+# --- Tooling & Editors ---
+# Claude Code or other CLI tool persistent data
+.claude/
+.anthropic/
+# VS Code / IDE settings
+.vscode/
+.idea/
+.DS_Store
+
+# --- Build & Distribution ---
+# If your grammar spec is compiled or bundled
+dist/
+build/
+node_modules/
